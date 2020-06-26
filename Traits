@@ -1,0 +1,70 @@
+<?php
+
+error_reporting(-1);
+ini_set("display_errors", 1);
+
+/*
+    Classe abstraite : classe qui ne s'instancie pas
+                     : factoriser du code
+                     : une classe ne peut qu'etendre une seule autre classe
+
+    Interface        : API
+                     : fournit un "contrat de services"            
+                     : une classe peut implementer plusieurs interfaces
+
+    Traits           : Ré-utilisation de code, dans des classes indépendantes 
+                     : Similaire a une classe
+                     : Grouper des fonctionnalités
+                     : Pas d'instanciation d'un trait
+                     
+*/
+
+trait tRouting
+{
+    public function parse()
+    {
+        echo 'parsing...';
+    }
+
+    public function get($req)
+    {
+        echo $req;
+    }
+}
+
+/*
+trait tOther
+{
+    use tRouting;
+
+    function 
+}
+*/
+
+class ModuleManager
+{
+    use tRouting;
+}
+
+class Template
+{
+ use tRouting ;
+}
+
+$test = new  ModuleManager();
+$test->parse();
+
+echo '<br>';
+
+$html = new template();
+$html->get('news/mon-premier-article');
+
+
+
+
+
+
+?>
+
+
+
