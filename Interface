@@ -1,0 +1,100 @@
+<?php
+
+error_reporting(-1);
+ini_set("display_errors", 1);
+
+/*
+    Classe abstraite : classe qui ne s'instancie pas
+                     : factoriser du code
+                     : une classe ne peut qu'etendre une seule autre classe
+
+    Interface        : API
+                     : fournit un "contrat de services"            
+                     : une classe peut implementer plusieurs interfaces
+*/
+
+
+
+// Interface
+
+/*
+interface iYoutube
+{
+    public function getVideo();
+    public function subscribers();
+}
+*/
+
+
+interface IArticle
+{
+    const NB_ARTICLE_PER_PAGE = 10;
+
+    public function getNbComments();
+    public function create();
+    public function save($author, $content);
+    public function delete();
+}
+
+interface IAuthor
+{
+    public function profile();
+}
+
+class BlogArticle implements IArticle, IAuthor // implementation multiple
+{
+    // obliger de redefinir toutes les methodes sinons erreur
+    public function profile()
+    {
+        echo 'Acces au profil'.'<br>';
+    }
+
+    public function getNbComments()
+    {
+        return 15;
+    
+    }
+
+    public function create()
+        {
+            echo 'Create()'.'<br>';
+        }
+    
+
+    public function save($author, $content)
+    {
+        echo $content.'<br>';
+    }
+
+    public function delete()
+    {
+        echo 'EXTERMINATE'.'<br>' ;
+    }
+}
+
+$test = new BlogArticle();
+$test->create();
+$test->getNbComments();
+$test->save('asterix', 'obelix');
+$test->delete();
+$test->profile();
+
+echo IArticle::NB_ARTICLE_PER_PAGE;
+
+/*
+on ne peut pas faire d'heritage multiples
+
+class A
+class B
+class OtherClass extends A, B  
+
+trop d'erreur 
+les interfaces sont la pour ça !
+
+*/
+
+
+
+
+
+?>
