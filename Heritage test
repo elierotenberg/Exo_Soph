@@ -1,0 +1,69 @@
+<?php
+
+error_reporting(-1);
+ini_set("display_errors", 1);
+
+
+
+
+class Card
+{
+    protected $_name;
+    protected $_description;
+
+    public function __construct($name, $description)
+    {
+        $this->_name = $name;
+        $this->_description = $description;
+    }
+
+    public function hello()
+    {
+        echo 'Je suis la carte '.$this->_name;
+    }
+}
+
+class TrapCard extends Card
+{
+    private $_effect;
+
+    public function __construct($name, $description, $effect)
+    {
+       parent::__construct($name, $description);
+       // $this->_name = $name;
+       // $this->_description = $description;
+        $this->_effect = $effect;
+
+
+    }
+    public function hello()
+    {
+        echo 'Je suis une trapcard ! <br>';
+        echo '<br>';
+        echo 'Nom : '.$this->_name.'<br>';
+        echo 'Desciption : '.$this->_description.'<br>';
+        echo 'Effet : '.$this->_effect.'<br>';
+
+
+    }
+    
+
+}
+echo '<br>';
+$mycard = new Card('magicien sombre', 'un magicien aux grands pouvoirs...');
+$mycard->hello();
+echo '<br>';
+$mytrapcard = new TrapCard('Fosse', 'Une grande fosse ....', 'Detruit tout les ennemis sur le terrain');
+$mytrapcard->hello();
+echo '<br>';
+$myothercard = new Card('test', 'ma desciption');
+$myothercard->hello();
+
+
+
+
+
+?>
+
+
+
