@@ -1,0 +1,92 @@
+<?php
+
+error_reporting(-1);
+ini_set("display_errors", 1);
+
+
+class Mother
+{
+    protected $_name;
+    public function __construct($name)
+    {
+        $this->_name = $name;
+    }
+    public function hello()
+    {
+        echo 'coz , i am : '.$this->_name.'<br>';
+    }
+}
+
+// on crée une heritiere a ce con de John, l'objet derriere est donc specialisé
+final class Daughter extends Mother // final class on stop l'heritage d'une class
+{
+    private $_otherName;// sa specialisation
+
+    public function __construct($name, $otherName) // surcharge le construc pour changer les Var
+    {
+        parent::__construct($name);
+        $this->_otherName = $otherName;
+
+    }
+
+    public function hello()
+    {
+        echo 'Mon nom est : '.$this->_name.' '.$this->_otherName.'<br>';
+    }
+}
+
+/*
+class PetiteFille extends Daughter
+{
+
+}
+*/
+
+$mama = new Mother('JOHN CENNNNNNNNAAAAAAAAAAAAA !!!! ');
+$mama->hello();
+
+$fifille = new Daughter('Katie', 'De SousA');
+$fifille->hello(); 
+
+// classe abstraite
+
+abstract class Mere
+{
+    abstract protected function hello();
+}
+class Fille extends Mere
+{
+    public function hello()
+    {
+        echo 'Yo, je suis la fille'.'<br>';
+    }
+
+}
+
+// $myObject = new Mere();  pas le droit on peut pas instancier une class abstraite
+$myObject = new Fille();
+$myObject->hello();
+
+// exemple
+
+abstract class Mere1
+{
+    abstract protected function say($message);
+}
+
+Class Fille1 extends Mere1
+{
+    public function say($message, $optional = 7) // parametre optionel suffit de mettre une valeur
+    {
+        echo $message.' '.$optional.'<br>';
+    
+}
+}
+$obj = new Fille1();
+$obj->say('yo, ma grosse', 8);
+$obj->say('ta de bo zyeux Tsais', 17);
+
+?>
+
+
+
