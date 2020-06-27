@@ -1,0 +1,74 @@
+<?php
+
+error_reporting(-1);
+ini_set("display_errors", 1);
+
+class MyExceptionClass extends Exception
+{
+    public function show_email_error_message()
+}
+
+// formulaire
+$email = 'tom@mail.com';
+
+try
+{   
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+        throw new MyExceptionClass('E-mail incorrect');
+
+}  
+
+catch(MyExcpetionClass $e)
+{
+    //echo $e->show_email_error_message()
+    echo $e->getMessage();
+}
+    
+$age = 17;
+
+// on essaie de lever une expetion
+try
+{
+    if($age < 18)
+        throw new Exception('Tu n\'es pas majeur');
+}
+
+// on recupere l'erreur
+catch(TypeError $e)
+{
+
+}
+
+catch(PDOException $e)
+{
+
+}
+
+catch(Exception $e)
+{
+    //echo 'Erreur <br>';
+    echo $e->getMessage();
+    //getFile(), getLine(), getCode()
+}
+
+//probleme ou pas
+finally
+{
+
+}
+
+//Redefinir un gestionaire par defaut
+
+function show_error($ex)
+{
+    echo 'ERREUR : '.$ex->getMessage();
+}
+
+set_exception_handler('show_error');
+
+throw new Exception('Utilasateur introuvable');
+
+?>
+
+
+
