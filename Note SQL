@@ -1,0 +1,33 @@
+
+Types de moteurs de stockage
+
+MyISAM : non transactionnel => performances
+InnoDB : transactioonnel => intégrité des données
+Memory : pas de place sur l'espace disque, tout en RAM : ultra rapide données volatile
+
+=> but du jeu mixer les deux pour avoir une DB operationnel
+
+changer le moteur par defaut
+SHOW ENBGINE;
+SET defaut_storage_engine = MyISAM (mettre celui qu'on veut)
+
+si on veux modifier de façon definitive on modifie le ini dans notre instalation 
+[mysqld] vu que c'est coté serveur
+default-storage-engine = InnoDB
+
+Choisir un moteur plutot qu'un autre
+
+MyISAM
+> rapide en ecriture, trés rapide en lecture
+> plus de lecture que d'ecritures
+> Efficace pour la recherche
+> Warning, bloque la taille completes
+
+InnoDB
+> message sur un forum, integrité des données
+> beaucoup d'ecritures /modifications/insert updates
+> securiser les données
+> assure la coherence entre les données (tables)
+> bloque la ligne 
+
+Si deux tables travaillent ensemble evitez de melangez les types de tables
