@@ -1,0 +1,25 @@
+<?php
+
+error_reporting(-1);
+ini_set("display_errors", 1);
+
+require 'db-config.php';
+
+
+
+
+try
+{
+    $PDO = new PDO($DB_DSN, $DB_USER, $DB_PASS);// constructeur
+
+    echo 'Connexion &eacute;tablie !';
+} 
+
+
+catch(PDOException $pe) // classe speciam de excpetion elle herite de toutes les methodes
+{
+    echo 'ERREUR : '.$pe->getMessage();
+}
+
+?>
+
