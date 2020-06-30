@@ -1,0 +1,98 @@
+<?php
+
+error_reporting(-1);
+ini_set("display_errors", 1);
+
+require 'db-config.php';
+
+/*
+    query()
+    fetch() / fetchAll()
+    setFetchMode()
+    closeCursor()
+
+*/
+
+
+
+
+try
+{
+    $options =
+    [
+        PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,  // silent ou warning pour changer
+        // PDO::ATTR_PERSISTENT => true
+    ];
+
+    $PDO = new PDO($DB_DSN, $DB_USER, $DB_PASS, $options);// constructeur
+
+    $sql = 'SELECT * FROM fv_clients';//pose le curseur
+
+   $results = $PDO->query($sql);
+
+    //-------------------------------------------------------------------------------------------------------
+    //FetchAll recuper toutes les données sous forme de tableau
+    $list_clients = $results->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach($list_clients as $client)
+    {
+        echo '<p>'.$client['client_firstanme'].'</p>';
+
+    }
+
+
+
+    //-------------------------------------------------------------------------------------------------------
+
+/*
+    FETCH :
+        BOTH (par defaut)
+        ASSOC(tableauy associatif)
+        OBJ (objet)
+*/
+
+    // MODE ASSOC
+   while($data = $results->fetch(PDO::FETCH_ASSOC))
+
+   {
+      echo '<p>'.$data['client_firstname'].' / '.$data['client_loyalty'].'</p>'; // on recuper les donnés associé aux client firstame
+
+   }
+
+   // echo 'Connexion &eacute;tablie !';
+
+   //MODE OBJ
+   while($data = $results->fetch(PDO::FETCH_OBJ))
+
+   {
+      echo '<p>'.$data->client_firstname.'</p>'; 
+
+   }
+
+   $results->closeCursor(); // ferme le curseur pour effectuer de nouvelle requetes avec select
+
+} 
+
+
+catch(PDOException $pe) // classe speciam de excpetion elle herite de toutes les methodes
+{
+    echo 'ERREUR : '.$pe->getMessage();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
+
