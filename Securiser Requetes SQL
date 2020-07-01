@@ -1,0 +1,74 @@
+<?php
+
+error_reporting(-1);
+ini_set("display_errors", 1);
+
+require 'db-config.php';
+/*
+    PDO::PARAM_STR ( par defaut) pas besoin de le mettre si on veux etre sur qu'on a une string
+    PDO::PARAM_NULL
+    PDO::PARAM_BOOL
+    PDO::PARAM_INT
+
+    3eme parametre pour bindValue() et BindParam()
+
+*/
+
+
+try
+{
+    $options =
+    [
+        PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,  // silent ou warning pour changer
+        PDO::ATTR_EMULATE_PREPARES => false // ameliorer la sécurité/perfomance // vrai requete pour les drivers pris en charge //
+        // PDO::ATTR_PERSISTENT => true
+    ];
+
+    $PDO = new PDO($DB_DSN, $DB_USER, $DB_PASS, $options);// connection base de données
+
+    $sql = 'SELECT * FROM fv_clients WHERE client_firstame = ?';
+    $request = $PDO->prepare($sql); // prepare plus securiser et plus performant une seule rpép a de la requetes
+    
+    $request->bindValue(1, "Coco");
+    $request->execute();
+
+    echo '<pre>';
+    print_r($request->fetchAll(PDO::FETCH_ASSOC));
+    echo '</pre>';
+
+    $equest->bindValue(1, 'Bamogo');
+    $request->execute();
+
+    echo '<pre>';
+    print_r($request->fetchAll(PDO::FETCH_ASSOC));
+    echo '</pre>';
+
+    //injection parametre plutot qu'une valeur
+    $name='Tic';
+    $request->bindParam(1, $name);//bindParam evalue la requetes avant l'execution, prend la dernier valeur avant l'exccution si plusieurs
+    $request->execute();
+
+   // echo $PDO->quote($sql);//evites les attaques par injection sql
+
+
+    //$request = $PDO->query($sql);
+
+    echo '<pre>';
+    print_r($request->fetchAll(PDO::FETCH_ASSOC));
+    echo '</pre>';
+
+
+} 
+
+
+catch(PDOException $pe) // classe speciam de excpetion elle herite de toutes les methodes
+{
+    echo 'ERREUR : '.$pe->getMessage();
+}
+
+
+
+
+?>
+
