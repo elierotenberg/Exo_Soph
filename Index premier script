@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma page web</title>
+</head>
+
+<body>
+
+    <h1>FormationVideo</h1>
+
+    <div>
+        <p>
+            on use la console en appuyant sur f12 direct dans le nav
+        </p>
+    </div>
+
+    <!--  <button>Cliquez ici !</button>-->
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
