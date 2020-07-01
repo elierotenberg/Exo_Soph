@@ -1,0 +1,81 @@
+let name = "Melissa";
+
+if (name === "Melissa") {
+    document.write('oui');
+    let number = 6;
+    if (number == 6)
+        document.write("oui en minuscule")
+}
+else {
+    document.write('pas exacte');
+}
+
+
+
+// test
+let number = 6;
+
+if (number < 0)
+    document.write("< 0");
+else if (number > 10)
+    document.write("> 10");
+else
+    document.write(number);
+
+
+// le bloc switch
+
+let nombre = 5;
+
+switch (nombre) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+        document.write("number < 5");
+        break;
+
+    case 5:
+        document.write("number = 5");
+        break;
+
+
+
+    default:
+        alert("pas de valeru reconnu....");
+        break;
+}
+
+let nom = "Yuna";
+
+switch (nom) {
+    case "Yuna":
+        document.write("ok");
+        break;
+
+    default:
+        alert("Nop propplayer");
+        break;
+}
+
+/*
+    if(name == "Yuna")
+    document.write("ok");
+    else
+    alert("Nop propplayer");
+*/
+
+//TERNAIRE
+
+/*
+
+<condition> ? <cas_vrai> : <cas_faux>
+
+*/
+
+let number1 = 15;
+let res = (number1 > 10) ? "number > 10" : "number <= 10";
+
+document.write(res);
+
