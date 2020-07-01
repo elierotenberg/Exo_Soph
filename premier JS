@@ -1,0 +1,6 @@
+document.write('bonjour, les gars jecris avec du JS');
+// alert('yo !'); affiche un pop up
+
+console.log('Probleme !');
+console.clear(); //clear la console
+console.error('Problem');// afficher un message sous forme d'erreur
