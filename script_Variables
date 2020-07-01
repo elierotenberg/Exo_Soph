@@ -1,0 +1,47 @@
+/*
+  document.write()
+  alert() / confirm
+  prompt()
+
+  parseInt()
+  parseFloat()
+
+*/
+
+
+document.write('hello !');
+
+var age = 14; //var donne une porté dans une fonction, let dépend d'un bloc de code
+document.write(age);
+
+var age = 28;
+document.write(age);
+var age = 'mathieu';
+document.write(age);
+
+
+document.write(typeof age); //voir le typage
+
+// un peu plus dynamique
+
+var name = prompt("comment t'apelles-tu ?");
+document.write(name);
+
+var age = prompt('Quel ages as tu?'); // prompt retourne un string
+age = parseInt(age); // transdfomation de age de string a INT
+document.write(typeof age);
+
+// constantes
+
+/*
+    const : valeur constante (non modifiables ) pour nombres, chaines, booléens,
+            types des données constant, mais contenu modifiable pour tableaux , objets,
+*/
+
+const PI = 3.14; //declaration d'une constante
+
+document.write(PI);
+
+
+
+
