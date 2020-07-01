@@ -1,0 +1,58 @@
+
+/*
+    let data = 14;
+    let data1 = prompt('valeurs dela variables ?');
+    let data2 = data1;
+
+*/
+
+/*
+    Operateurs arithmétique
+    =, +=, -=, *=, %=
+    ++, --,
+    +, -, *, /, %
+    <, >, <=, >=
+    ==, ===, !=, !== (vrai si le type est differents ou alors pas egales)
+*/
+
+/*
+    int, float, str
+*/
+
+
+// 5 / 2 = 2 ( modulo -> % = 1)
+
+let result = 14;
+
+let N = 5;
+document.write(N);
+
+N = 6;
+document.write(N);
+
+N = N + 1;//  A = A + x    N += 1
+N = N - 2;// N -= 2
+document.write(N);
+
+N += 1;
+N -= 1;
+document.write(N);
+
+N++;//++N
+N--;//--N
+
+/* 
+    N++ 
+        -> N = N
+        -> N + 1
+    
+    ++N 
+        -> N + 1
+        -> N = N 
+
+*/
+
+let M = 5;
+document.write(++M);// le write est prioritaire sur l'incrementation du coup on met l'iuncrementation avant
+
+document.write(8 > 12);
