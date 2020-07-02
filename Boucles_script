@@ -1,0 +1,57 @@
+/*
+document.write("a ");
+document.write("a ");
+document.write("a ");
+document.write("a ");
+document.write("a ");
+document.write("a ");
+*/
+
+
+// avec while
+let i = 0;
+
+while (i < 5) {
+    document.write("AAA ");
+    i++;
+}
+
+
+// avec do et while
+let j = 0
+do {
+    document.write("AAABBB ");
+    j++;
+}
+while (j < 5);
+
+
+// avec for
+
+for (let k = 0; k < 5; ++k) {
+    document.write("CCC ");
+
+    if (k === 25)
+        break;
+}
+
+// plusieurs instructions et un jump
+for (let l = 0; l < 10; ++l) {
+    document.write("a");
+
+    if (l === 5)
+        continue;
+
+
+    document.write("b ");
+}
+
+/*
+for...in
+for...of
+*/
+
+/*
+break ;
+continue;
+*/
