@@ -1,0 +1,101 @@
+//console.log()
+//document.write()
+
+/*
+document.write("Hello ");
+document.write("World !");
+
+document.write("Hello ");
+document.write("World !");
+
+document.write("Hello ");
+document.write("World !");
+
+*/
+
+function helloWorld() {
+    document.write("Hello ");
+    document.write("World !");
+}
+
+
+helloWorld();
+
+// fonction sur un site web
+
+function getNewsFromDatabase() {
+    // code ...
+}
+
+let data = "ok";
+
+function functionName() {
+    let data2 = 14;
+    document.write(data2);
+    document.write("test : " + data);
+}
+
+functionName();
+//------------------------------------------------------------------------------------------------
+
+function sum(nb1, nb2) {
+    return nb1 + nb2
+}
+
+let res = sum(4, 3)
+
+console.log(res);
+document.write(res);
+
+//----------------------------------------------------------------------------------------------------
+function sum(nb3, nb4 = 12) // nb4 = 12 valeurs par defaut (...args) nb infini de variables
+{
+    return nb3 + nb4;
+}
+let n1 = 17;
+let n2 = 9856585;
+document.write(sum(n1, n2));
+
+//------------------------------------------------------------------------------------------------
+//fonction dans une fonction
+
+function some_function() {
+    let data = 16;
+
+    function another_function() {
+        document.write(data);
+    }
+    another_function();
+}
+
+some_function();
+
+//----------------------------------------------------------------------------------------------------
+//fonction sous forme d'expression
+
+let hi = function bonjour() {
+    document.write("Hello World !");
+};
+
+hi();
+
+//-----------------------------------------------------------------------------------------------------
+//fonctions anonymes
+
+let somme = function (x, y) {
+    return x + y;
+
+};
+document.write(somme(78, 21));
+//--------------------------------------------------------------------------------------------------
+//funcion fléchés
+let sommeFl = (x, y) => {
+    return x + y;
+
+};
+document.write(sommeFl(78, 21));
+
+
+/*
+    (<arguments>) => {<instructions>}
+*/
